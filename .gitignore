@@ -1,0 +1,5 @@
+*.pyc
+*~
+menu_assistant/__pycache__
+venv
+db.sqlite3

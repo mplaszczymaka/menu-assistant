@@ -1,4 +1,4 @@
-{% load static %}
+﻿{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -12,14 +12,17 @@
         <div id="account-opt"></div>
 
         <div id="main-logo">
-
+            <img src="{% static 'img/sushi.svg' %}">
+            <p>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor...
+            </p>
         </div>
 
-        <div id="menus-choice">
+        <nav id="menus-choice">
             {% for menu in menus %}
-                <li>{{ menu }}</li>
+                <div class="menus btn">{{ menu }}</div>
             {% endfor %}
-        </div>
+        </nav>
     </div>
 </body>
 </html>

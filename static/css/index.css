@@ -14,19 +14,57 @@ body {
     margin-left: auto;
     margin-right: auto;
     max-width: 1000px;
-    border: 1px solid black;
+    height: 100vh;
 }
 
+.btn {
+    border: 1px rgba(128, 44, 44, 0.12) solid;
+    border-radius: 4px;
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.btn:hover {
+    background-color: rgba(128, 44, 44, 0.08);
+}
+
+
+/* index page */
 #account-opt {
 
 }
 
 
 #main-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 200;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
 
+#main-logo p {
+    position: relative;
+    top: -20px;
+    color: #ffffff;
+    background-color: rgba(99, 33, 33, 0.1);
+}
+
+#main-logo img {
+    width: 200px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    opacity: 60%;
 }
 
 
-#menus-choice {
+#menus-choice btn {
+    position: relative;
+    display: ;
+    float: left;
+    bottom: 10%;
 
 }

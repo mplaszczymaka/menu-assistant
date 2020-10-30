@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #292929;
+    font-size: 16px;
+    color: #802C2C;
+    font-family: 'Roboto', sans-serif;
+}
+
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+    height: 100vh;
+}
+
+
+/* buttons and links*/
+a, a:hover, a:active, a:visited {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.btn {
+    border: 1px rgba(128, 44, 44, 0.2) solid;
+    border-radius: 4px;
+    font-size: 1.3rem;
+    font-weight: 300;
+    padding: 5px 0;
+}
+
+.btn:hover {
+    background-color: rgba(128, 44, 44, 0.2);
+}

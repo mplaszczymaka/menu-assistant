@@ -9,4 +9,7 @@ def index(request):
 
 def menu(request, menu_pk):
     menu = Menu.objects.get(pk=menu_pk)
-    return render(request, 'menu/menu.html', {'menu':menu})
+    categories = menu.categories.all()
+    context =  {'menu':menu,
+                'categories':categories,}
+    return render(request, 'menu/menu.html', context)

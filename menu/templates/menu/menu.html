@@ -10,7 +10,11 @@
         <div id="search-bar">1</div>
         <div id="filters">2</div>
         <div id="account-opt">3</div>
-        <div id="categories">4</div>
+        <div id="categories">
+            {% for category in categories %}
+                <div class="category btn">{{ category }}</div>
+            {% endfor %}
+        </div>
         <div id="dishes">5</div>
         <div id="small-container">
             <div id="info-img">6</div>

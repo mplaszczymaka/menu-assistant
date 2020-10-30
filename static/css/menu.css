@@ -15,6 +15,9 @@ body {
     margin-right: auto;
     max-width: 1000px;
     height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
 
 
@@ -34,4 +37,50 @@ a, a:hover, a:active, a:visited {
 
 .btn:hover {
     background-color: rgba(128, 44, 44, 0.2);
+}
+
+/* main content */
+
+#container div {
+    box-sizing: border-box;
+    border: 1px red solid;
+}
+
+#search-bar {
+    flex-basis: 50%;
+    height: 10vh;
+}
+
+#filters {
+    flex-basis: 30%;
+    height: 10vh;
+}
+
+#account-opt {
+    flex-basis: 20%;
+    height: 10vh;
+}
+
+#categories {
+    flex-basis: 10%;
+    height: 80vh;
+}
+
+#dishes {
+    flex-basis: 70%;
+    height: 80vh;
+}
+
+/* small container to allign two last items */
+#small-container {
+    flex-basis: 20%;
+    height: 80vh;
+}
+
+#info-img {
+    height: 20vh;
+}
+
+#summary {
+    height: 60vh;
 }

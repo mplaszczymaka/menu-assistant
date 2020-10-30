@@ -7,3 +7,6 @@ def index(request):
     menus = Menu.objects.all()
     
     return render(request, 'menu/index.html', {'menus':menus})
+
+def menu(request, menu_name):
+    pass

@@ -39,4 +39,4 @@ class Menu(models.Model):
     categories = models.ManyToManyField(Category)
 
     def __str__(self):
-        return self.name
+        return str(self.name).lower()

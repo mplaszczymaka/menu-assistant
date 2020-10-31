@@ -8,14 +8,23 @@
 {% block content %}
     <div id="container">
         <div id="search-bar">1</div>
+
         <div id="filters">2</div>
+
         <div id="account-opt">3</div>
+
         <div id="categories">
             {% for category in categories %}
-                <div class="category btn">{{ category }}</div>
+                <a href="{% url 'menu:menu' menu.pk category.pk %}"><div class="category btn">{{ category }}</div></a>
             {% endfor %}
         </div>
-        <div id="dishes">5</div>
+
+        <div id="dishes">
+            {% for dish in dishes %}
+                <div class="dish btn">{{ dish }}</div>
+            {% endfor %}
+        </div>
+
         <div id="small-container">
             <div id="info-img">6</div>
             <div id="summary">7</div> 

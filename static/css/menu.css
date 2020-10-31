@@ -28,8 +28,6 @@ a, a:hover, a:active, a:visited {
 }
 
 .btn {
-    /*border: 1px rgba(128, 44, 44, 0.2) solid;
-    /*border-radius: 4px; */
     margin-bottom: 1px;
     background-color: #2F2F2F;
     color: #ffffff;

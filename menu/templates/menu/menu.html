@@ -26,14 +26,15 @@
                     <div class="dish-name">
                         {{ dish }}
                     </div>
-
+                    <div class="dish-amount-price">{{ dish.amount }}szt {{ dish.price }}zł</div>      
                     <div class="dish-ingredient">
                         {% for ingredient in dish.ingredients.all %}
                             {{ ingredient }}, 
                         {% endfor %}
                     </div>
+                    <div class="dish-add">+</div>
                 </div>
-                
+
             {% endfor %}
         </div>
 

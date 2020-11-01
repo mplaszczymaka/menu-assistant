@@ -73,16 +73,38 @@ a, a:hover, a:active, a:visited {
 #dishes {
     flex-basis: 60%;
     height: 80vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .dish {
     box-sizing: border-box;
     padding: 5px 10px;
-    
+    max-width: 50%;
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: space-around; 
+}
+
+.dish div {
+    /* border: solid 1px red; */
+    flex-grow: 1;
+    align-self: center;
 }
 
 .dish-name {
+    /* flex-grow: 2; */
+    /* flex-basis: 200px; */
+    /* flex-shrink: 2; */
     text-align: left;
+}
+
+.dish-amount-price {
+    font-size: 0.7rem;
+    text-align: right;
+    /* flex-basis: 200px; */
+    
 }
 
 .dish-ingredient {
@@ -90,6 +112,11 @@ a, a:hover, a:active, a:visited {
     font-size: 0.8rem;
     font-weight: 300;
     margin-left: 3px;
+    flex-basis: 90%;
+}
+
+.dish-add {
+    text-align: right;
 }
 
 /* small container to allign two last items */

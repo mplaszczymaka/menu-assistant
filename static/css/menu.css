@@ -75,6 +75,23 @@ a, a:hover, a:active, a:visited {
     height: 80vh;
 }
 
+.dish {
+    box-sizing: border-box;
+    padding: 5px 10px;
+    
+}
+
+.dish-name {
+    text-align: left;
+}
+
+.dish-ingredient {
+    text-align:  left;
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-left: 3px;
+}
+
 /* small container to allign two last items */
 #small-container {
     flex-basis: 20%;

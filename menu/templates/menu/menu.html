@@ -21,7 +21,19 @@
 
         <div id="dishes">
             {% for dish in dishes %}
-                <div class="dish btn">{{ dish }}</div>
+
+                <div class="dish btn">
+                    <div class="dish-name">
+                        {{ dish }}
+                    </div>
+
+                    <div class="dish-ingredient">
+                        {% for ingredient in dish.ingredients.all %}
+                            {{ ingredient }}, 
+                        {% endfor %}
+                    </div>
+                </div>
+                
             {% endfor %}
         </div>
 

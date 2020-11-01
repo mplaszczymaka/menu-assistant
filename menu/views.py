@@ -15,7 +15,7 @@ def menu(request, menu_pk, category_pk):
 
     # set category to display dishes, default is first cat of specific menu
     selected_category = Category.objects.get(pk=category_pk)
-    dishes = selected_category.dishes.all()
+    dishes = list(selected_category.dishes.all())
 
     context =  {'menu'      :   menu,
                 'categories':categories,

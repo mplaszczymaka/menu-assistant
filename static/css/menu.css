@@ -13,7 +13,7 @@ body {
 #container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 1000px;
+    max-width: 1200px;
     height: 100vh;
     display: flex;
     flex-wrap: wrap;
@@ -36,7 +36,6 @@ a, a:hover, a:active, a:visited {
     font-weight: 400;
     text-align: center;
     padding: 7px 0;
-
 }
 
 .btn:hover {
@@ -47,7 +46,7 @@ a, a:hover, a:active, a:visited {
 
 #container div {
     box-sizing: border-box;
-    /* border: 1px red solid; */
+    /* border: 1px #802C2C solid; */
 }
 
 #search-bar {
@@ -68,6 +67,7 @@ a, a:hover, a:active, a:visited {
 #categories {
     flex-basis: 20%;
     height: 80vh;
+    border: #802C2C 1px solid;
 }
 
 #dishes {
@@ -76,6 +76,7 @@ a, a:hover, a:active, a:visited {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    border: #802C2C 1px solid;
 }
 
 .dish {
@@ -88,22 +89,17 @@ a, a:hover, a:active, a:visited {
 }
 
 .dish div {
-    /* border: solid 1px red; */
     flex-grow: 1;
     align-self: center;
 }
 
 .dish-name {
-    /* flex-grow: 2; */
-    /* flex-basis: 200px; */
-    /* flex-shrink: 2; */
     text-align: left;
 }
 
 .dish-amount-price {
     font-size: 0.7rem;
     text-align: right;
-    /* flex-basis: 200px; */
     
 }
 
@@ -127,8 +123,37 @@ a, a:hover, a:active, a:visited {
 
 #info-img {
     height: 20vh;
+    border: #802C2C 1px solid;
 }
 
-#summary {
+#summary-extras {
     height: 60vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px #802C2C solid;
+}
+
+#summary-extras div {
+    box-sizing: border-box;
+    margin: 4px;
+}
+
+.summary {
+    flex-grow: 2;
+    flex-basis: 90%;
+    height: 70%;
+}
+
+.similar {
+    flex-grow: 1;
+    flex-basis: 45%;
+    height: 25%;
+}
+
+.basket {
+    flex-grow: 1;
+    flex-basis: 45%;
+    height: 25%;
 }

@@ -4,7 +4,7 @@ from django.db import models
 class Ingredient(models.Model):
     """ can be in many dishes """
     name = models.CharField(max_length=30)
-    available = models.BooleanField(default=True)
+    is_available = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name

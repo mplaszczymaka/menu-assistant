@@ -1,0 +1,90 @@
+[33mcommit 67a20d4cd1c1b1c8c3c9e30f7ca8664192f798e9[m[33m ([m[1;36mHEAD -> [m[1;32mmenu_view[m[33m, [m[1;31morigin/menu_view[m[33m)[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Sun Nov 1 13:03:52 2020 +0100
+
+    buttons displays ingredients
+
+[33mcommit 89760861c7b0c3dfe46498885d6f21cd86dd3f57[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Sat Oct 31 01:02:25 2020 +0100
+
+    can choose category and it shows its dishes
+
+[33mcommit 8086863f2671dadbed2f4da7086e94a24b9078ea[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Fri Oct 30 23:22:03 2020 +0100
+
+    it displays categories
+
+[33mcommit f0bfb7a2b1790851aeedbd682136f5c25d5be3fa[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Fri Oct 30 22:46:01 2020 +0100
+
+    set flex grid in menu
+
+[33mcommit 26181022e3c64b69e9113842bc8a4c533d67bfa5[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Fri Oct 30 21:27:51 2020 +0100
+
+    add base template to extend by others; add menu.html and menu.css
+
+[33mcommit 353add2bea55246146a208d5eae005da1948dfda[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Fri Oct 30 16:10:15 2020 +0100
+
+    add comments to css, change bachground color to buttons and text in index, buttons link to menu pages
+
+[33mcommit 607805fe51690c3630cd5a0ab8da539ec7656ab8[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Fri Oct 30 12:09:12 2020 +0100
+
+    good enough looking index page (with no account opt)
+
+[33mcommit ec9e06502f5821077702fd315a53fbfdc9d19fc5[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Fri Oct 30 01:03:30 2020 +0100
+
+    set btn class and few more in css for index; to do menus-choice
+
+[33mcommit 9bed4842a1abab48811770b4fc1c3b447aa2ad98[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Thu Oct 29 18:52:39 2020 +0100
+
+    include css, add index view and index template
+
+[33mcommit 262c78f16aff048fb549d053e9ecc66b442c5d7c[m
+Merge: d8c7381 8097b5c
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Thu Oct 29 00:20:19 2020 +0100
+
+    Merge branch 'master' of https://github.com/mplaszczymaka/menu-assistant
+
+[33mcommit d8c7381a790f4f689bc1505a4b6784463f449a73[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Thu Oct 29 00:19:36 2020 +0100
+
+    register models in admin site
+
+[33mcommit 8097b5c0ba00b9d8c7114cf1bb68e9f5503147ea[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Thu Oct 29 00:00:57 2020 +0100
+
+    Delete settings.cpython-38.pyc
+
+[33mcommit 1ae8a10a01f3e00caa26e582d4cfc30800717d80[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Thu Oct 29 00:00:46 2020 +0100
+
+    Delete __init__.cpython-38.pyc
+
+[33mcommit dfcfdd86740452be2edd93e6d77b4cc2a0b69e45[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Wed Oct 28 23:59:11 2020 +0100
+
+    add models: Ingredient, Dish, Category, Menu
+
+[33mcommit 17924fe4afad1310e78236f95d1d622f74cb84c8[m
+Author: mplaszczymaka <plaszczyk16@wp.pl>
+Date:   Wed Oct 28 23:28:28 2020 +0100
+
+    initial commit

@@ -29,7 +29,11 @@
                     <div class="dish-amount-price">{{ dish.amount }}szt {{ dish.price }}zł</div>      
                     <div class="dish-ingredient">
                         {% for ingredient in dish.ingredients.all %}
-                            {{ ingredient }}, 
+                            {% if ingredient.is_available == True %}
+                                {{ ingredient }}, 
+                            {% else %}
+                                <s style="color:rgba(128, 44, 44, 0.2)">{{ ingredient}}</s>
+                            {% endif %}
                         {% endfor %}
                     </div>
                     <div class="dish-add">+</div>

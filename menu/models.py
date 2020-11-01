@@ -14,6 +14,7 @@ class Dish(models.Model):
     price = models.SmallIntegerField()
     ingredients = models.ManyToManyField(Ingredient)
     amount = models.SmallIntegerField()
+    is_available = models.BooleanField(default=True)
     # img = models.ImageField()
 
     class Meta:

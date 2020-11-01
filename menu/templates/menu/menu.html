@@ -21,10 +21,17 @@
 
         <div id="dishes">
             {% for dish in dishes %}
-
                 <div class="dish btn">
                     <div class="dish-name">
-                        {{ dish }}
+                        {% if dish.is_available == True %}
+                            {{ dish }} 
+                        {% else %}
+                            <style>
+                                .dish:nth-child({{ dish.pk }}) {color:rgba(128, 44, 44, 0.2);}
+                            </style>
+                            <s>{{ dish }}</s>
+                        {% endif %}
+                    
                     </div>
                     <div class="dish-amount-price">{{ dish.amount }}szt {{ dish.price }}zł</div>      
                     <div class="dish-ingredient">
@@ -36,7 +43,15 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-                    <div class="dish-add">+</div>
+                    <div class="dish-add">
+                        {% if dish.is_available == True %}
+                                + 
+                        {% else %}
+                            <style>
+                                .dish:nth-child({{ dish.pk }}) {color:rgba(128, 44, 44, 0.2);}
+                            </style>
+                        {% endif %}
+                    </div>
                 </div>
 
             {% endfor %}

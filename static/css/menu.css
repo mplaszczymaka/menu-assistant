@@ -27,14 +27,17 @@ a, a:hover, a:active, a:visited {
     color: #ffffff;
 }
 
-.btn {
-    margin-bottom: 1px;
+.sheet {
     background-color: #2F2F2F;
     color: #ffffff;
     box-shadow: 0 4px 3px rgba(0,0,0,0.5);
     font-size: 1.2rem;
     font-weight: 400;
     text-align: center;
+}
+
+.btn {
+    margin-bottom: 1px;
     padding: 7px 0;
 }
 

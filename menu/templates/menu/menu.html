@@ -15,13 +15,13 @@
 
         <div id="categories">
             {% for category in categories %}
-                <a href="{% url 'menu:menu' menu.pk category.pk %}"><div class="category btn">{{ category }}</div></a>
+                <a href="{% url 'menu:menu' menu.pk category.pk %}"><div class="category sheet btn">{{ category }}</div></a>
             {% endfor %}
         </div>
 
         <div id="dishes">
             {% for dish in dishes %}
-                <div class="dish btn">
+                <div class="dish sheet btn">
                     <div class="dish-name">
                         {% if dish.is_available == True %}
                             {{ dish }} 
@@ -60,7 +60,7 @@
         <div id="small-container">
             <div id="info-img">6</div>
             <div id="summary-extras">
-                <div class="summary btn">
+                <div class="summary sheet">
                     <h2>Podsumowanie:</h2>
                     <ul>
                         <li>
@@ -77,8 +77,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="similar btn"></div>
-                <div class="basket btn"></div>
+                <div class="similar sheet btn"></div>
+                <div class="basket sheet btn"></div>
             </div> 
         </div>
     </div>

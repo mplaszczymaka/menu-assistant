@@ -28,6 +28,7 @@ p span {
     position: absolute;
     display: inline;
     right: 0;
+    float: right;
 }
 
 hr {

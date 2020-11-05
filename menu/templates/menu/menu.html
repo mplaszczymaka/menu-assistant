@@ -45,18 +45,14 @@
                     </div>
                     <div class="dish-add">
                         {% if dish.is_available == True %}
-                                <form method="post" action="{% url 'menu:add_to_basket' menu.pk category.pk dish.pk %}">
-                                    {% csrf_token %}
-                                    <input type="submit">
-                                </form>
+                                + 
                         {% else %}
                             <style>
-                                 .dish:nth-child({{ dish.pk }}) {color:rgba(128, 44, 44, 0.2);}
+                                .dish:nth-child({{ dish.pk }}) {color:rgba(128, 44, 44, 0.2);}
                             </style>
                         {% endif %}
-                        
                     </div>
-                    </div>
+                </div>
 
             {% endfor %}
         </div>
@@ -68,13 +64,17 @@
                     <h1>Podsumowanie:</h1>
                     <ul>
                         <li>
-                            <p>liczba sztuk<span>5</span></p><hr>
+                            <p>ilość potraw<span>5</span></p><hr>
+                            
                         </li>
                         <li>
-                            <p>zestaw dla<span>5</span></p><hr>
+                            <p>liczba sztuk</p><hr>
                         </li>
                         <li>
-                            <p>cena<span>5</span></p><hr>
+                            <p>zestaw dla</p><hr>
+                        </li>
+                        <li>
+                            <p>cena</p><hr>
                         </li>
                     </ul>
                 </div>

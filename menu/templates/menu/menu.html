@@ -21,40 +21,40 @@
 
         <div id="dishes">
             {% for dish in dishes %}
-                {% if dish.is_available == False %}
-                    <style type="text/css">
-                        .dish span {color:rgba(128, 44, 44, 0.2);}
-                    </style>
-                {% endif %}
                 <div class="dish sheet btn">
                     <div class="dish-name">
                         {% if dish.is_available == False %}
-                            <span><s>{{ dish }}</s></span>
+                            <span><s style="color:rgba(128, 44, 44, 0.2)">{{ dish }}</s></span>
                         {% else %}
-                            {{ dish }}
+                            <span style="color:#ffffff;">{{ dish }}</span>
                         {% endif %}
                     </div>
-                    <div class="dish-amount-price">{{ dish.amount }}szt {{ dish.price }}zł</div>      
+                    <div class="dish-amount-price">
+                        {% if dish.is_available == False %}
+                            <span><s style="color:rgba(128, 44, 44, 0.2)">{{ dish.amount }}szt {{ dish.price }}zł</s></span>
+                        {% else %}
+                            <span>{{ dish.amount }}szt {{ dish.price }}zł</span>
+                        {% endif %}
+                    </div>      
                     <div class="dish-ingredient">
                         {% for ingredient in dish.ingredients.all %}
                             {% if ingredient.is_available == False %}
                                 <span><s style="color:rgba(128, 44, 44, 0.2)">{{ ingredient }},</s></span>
                             {% else %}
-                                {{ ingredient }},
+                                {% if dish.is_available == False %}
+                                    <span><s style="color:rgba(128, 44, 44, 0.2)">{{ ingredient }},</s></span>
+                                {% else %}
+                                    <span>{{ ingredient }},</span>
+                                {% endif %}
                             {% endif %}
                         {% endfor %}
                     </div>
                     <div class="dish-add">
                         {% if dish.is_available == True %}
-                                + 
-                        {% else %}
-                            <style>
-                                .dish:nth-child({{ dish.pk }}) {color:rgba(128, 44, 44, 0.2);}
-                            </style>
+                                <span>+</span>
                         {% endif %}
                     </div>
                 </div>
-
             {% endfor %}
         </div>
 

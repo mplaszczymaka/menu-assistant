@@ -41,5 +41,12 @@ class Menu(models.Model):
 
     def __str__(self):
         return str(self.name).lower()
-        
+
+class Dish_in_basket(models.Model):
+    name = models.CharField(max_length=30)
+    quantity = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+    
     

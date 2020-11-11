@@ -15,7 +15,7 @@
 
         <div id="categories">
             {% for category in categories %}
-                <a href="{% url 'menu:menu' menu.pk category.pk %}"><div class="category sheet btn">{{ category }}</div></a>
+                <a href="{% url 'menu:menu' menu.pk category.pk 0 0 %}"><div class="category sheet btn">{{ category }}</div></a>
             {% endfor %}
         </div>
 
@@ -51,7 +51,7 @@
                     </div>
                     <div class="dish-add">
                         {% if dish.is_available == True %}
-                                <span>+</span>
+                            <span><a href="{% url 'menu:menu' menu.pk category.pk dish.pk 1 %}">+</a></span>
                         {% endif %}
                     </div>
                 </div>
@@ -66,7 +66,6 @@
                     <ul>
                         <li>
                             <p>ilość potraw<span>5</span></p><hr>
-                            
                         </li>
                         <li>
                             <p>liczba sztuk</p><hr>

@@ -13,7 +13,7 @@ class Dish(models.Model):
     name = models.CharField(max_length=50)
     price = models.SmallIntegerField()
     ingredients = models.ManyToManyField(Ingredient)
-    amount = models.SmallIntegerField()
+    amount = models.SmallIntegerField()             # rename to quantity?
     is_available = models.BooleanField(default=True)
     # img = models.ImageField()
 

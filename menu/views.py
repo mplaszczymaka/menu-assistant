@@ -43,11 +43,21 @@ def menu(request, menu_pk, category_pk, dish_pk = 0, quantity = 0):
         count_pieces.append(quantity * how_many)
     count_pieces = sum(count_pieces)
 
+    # assume cost of basket
+    count_costs = []
+    for dish in Dish_in_basket.objects.all():
+        price = Dish.objects.get(name=dish).price
+        how_many = dish.quantity
+        count_costs.append(price * how_many)
+    count_costs = sum(count_costs)
+
+
     context =  {'menu'        :   menu,
                 'categories'  :   categories,
                 'category'    :   selected_category,
                 'dishes'      :   dishes,
                 'count_dishes':   count_dishes,
                 'count_pieces':   count_pieces,
+                'count_costs' :   count_costs,
                 }
     return render(request, 'menu/menu.html', context)

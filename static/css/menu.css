@@ -177,6 +177,11 @@ a, a:hover, a:active, a:visited {
     height: 70%;
 }
 
+.count-basket span {
+    position: relative;
+    float: right;
+}
+
 .similar {
     flex-grow: 1;
     flex-basis: 45%;

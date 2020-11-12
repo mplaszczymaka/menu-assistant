@@ -57,7 +57,7 @@ def menu(request, menu_pk, category_pk, dish_pk = 0, quantity = 0):
         portion = Dish.objects.get(name=dish).portion_for
         how_many = dish.quantity
         count_portion.append(portion * how_many)
-    count_portion = int(sum(count_portion))
+    count_portion = int(round(sum(count_portion)))
 
 
     context =  {'menu'        :   menu,

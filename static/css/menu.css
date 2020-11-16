@@ -6,10 +6,16 @@
 button {
     color: inherit;
     border: none;
-    padding: 0;
     font: inherit;
     cursor: pointer;
     outline: inherit;
+    margin-bottom: 1px;
+    padding: 7px 0;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #362929;
 }
 
 body {
@@ -72,14 +78,14 @@ a, a:hover, a:active, a:visited {
     color: #ffffff;
 }
 
-.btn {
+/* .btn {
     margin-bottom: 1px;
     padding: 7px 0;
 }
 
 .btn:hover {
     background-color: #362929;
-}
+} */
 
 /* main content */
 
@@ -153,6 +159,11 @@ a, a:hover, a:active, a:visited {
 
 .dish-add {
     text-align: right;
+    padding: 0 5px;
+}
+
+.dish-add:hover a {
+    color: #802C2C;
 }
 
 /* small container to allign two last items */

@@ -14,6 +14,6 @@
 //     }
 // });
 
-$("button").click(function(){
+$(".basket-btn").click(function(){
     $(".basket").toggle();
   });

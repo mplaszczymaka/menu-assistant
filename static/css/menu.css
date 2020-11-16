@@ -192,16 +192,18 @@ a, a:hover, a:active, a:visited {
     float: right;
 }
 
-.similar {
+.similar-btn {
     flex-grow: 1;
     flex-basis: 45%;
     height: 25%;
+    margin: 4px;
 }
 
 .basket-btn {
     flex-grow: 1;
     flex-basis: 45%;
     height: 25%;
+    margin: 4px;
 }
 
 .basket {
@@ -212,4 +214,16 @@ a, a:hover, a:active, a:visited {
     position: absolute;
     width: 96%;
     display: none;
+    padding: 0;
+}
+
+.dish-in-basket {
+    /* margin: 1px; */
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: space-around;
+}
+
+.dish-in-basket div {
+    flex-grow: 1;
 }

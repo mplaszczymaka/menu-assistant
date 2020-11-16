@@ -29,15 +29,17 @@ def menu(request, menu_pk, category_pk, dish_pk = 0, quantity = 0):
         else:
             Dish_in_basket.objects.create(name=dish, quantity=1)
 
+    dishes_in_basket = Dish_in_basket.objects.all()
+
     # count number of dishes in basket
     count_dishes = []
-    for dish in Dish_in_basket.objects.all():
+    for dish in dishes_in_basket:
         count_dishes.append(dish.quantity)
     count_dishes = sum(count_dishes)
 
     # count number of pieces in basket
     count_pieces = []
-    for dish in Dish_in_basket.objects.all():
+    for dish in dishes_in_basket:
         quantity = Dish.objects.get(name=dish).amount
         how_many = dish.quantity
         count_pieces.append(quantity * how_many)
@@ -45,7 +47,7 @@ def menu(request, menu_pk, category_pk, dish_pk = 0, quantity = 0):
 
     # assume cost of basket
     count_costs = []
-    for dish in Dish_in_basket.objects.all():
+    for dish in dishes_in_basket:
         price = Dish.objects.get(name=dish).price
         how_many = dish.quantity
         count_costs.append(price * how_many)
@@ -53,7 +55,7 @@ def menu(request, menu_pk, category_pk, dish_pk = 0, quantity = 0):
 
     # count for how many people is food in basket
     count_portion = []
-    for dish in Dish_in_basket.objects.all():
+    for dish in dishes_in_basket:
         portion = Dish.objects.get(name=dish).portion_for
         how_many = dish.quantity
         count_portion.append(portion * how_many)
@@ -64,6 +66,7 @@ def menu(request, menu_pk, category_pk, dish_pk = 0, quantity = 0):
                 'categories'  :   categories,
                 'category'    :   selected_category,
                 'dishes'      :   dishes,
+                'dishes_in_basket':dishes_in_basket,
                 'count_dishes':   count_dishes,
                 'count_pieces':   count_pieces,
                 'count_costs' :   count_costs,

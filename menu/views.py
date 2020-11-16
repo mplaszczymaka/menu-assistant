@@ -62,6 +62,7 @@ def menu(request, menu_pk, category_pk, dish_pk = 0, quantity = 0):
     count_portion = int(round(sum(count_portion)))
 
 
+
     context =  {'menu'        :   menu,
                 'categories'  :   categories,
                 'category'    :   selected_category,

@@ -28,7 +28,7 @@
                         {% if dish.is_available == False %}
                             <span><s style="color:rgba(128, 44, 44, 0.2)">{{ dish }}</s></span>
                         {% else %}
-                            <span style="color:#ffffff;">{{ dish }}</span>
+                            <span style="color:#ffffff;">{{ dish.name }}</span>
                         {% endif %}
                     </div>
                     <div class="dish-amount-price">
@@ -85,7 +85,7 @@
                 <div class="basket sheet">
                     {% for dish in dishes_in_basket %}
                         <button class="dish-in-basket sheet">
-                            <div class="dish-name">{{ dish.name }}</div>
+                            <div class="dish-name">{{ dish }}</div>
                             <div class="dish-amount-price">{{ dish.quantity }}szt</div>
                             <div class="dish-add"><a href="#">+</a></div>
                             <div class="dish-remove"><a href="#">-</a></div>

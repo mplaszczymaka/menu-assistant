@@ -22,7 +22,7 @@ class Dish(models.Model):
         verbose_name_plural = "Dishes"
 
     def __str__(self):
-        return self.short_name
+        return self.name
 
 class Category(models.Model):
     name = models.CharField(max_length=30)

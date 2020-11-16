@@ -224,7 +224,7 @@ a, a:hover, a:active, a:visited {
     height: 70%;
     z-index: 1;
     position: absolute;
-    width: 96%;
+    width: 100%;
     display: none;
     padding: 0;
 }

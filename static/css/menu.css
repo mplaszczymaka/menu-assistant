@@ -205,17 +205,17 @@ a, a:hover, a:active, a:visited {
 }
 
 .similar-btn {
-    flex-grow: 1;
-    flex-basis: 45%;
-    height: 25%;
-    margin: 4px;
+    /* flex-grow: 1; */
+    flex-basis: 36%;
+    height: 22%;
+    margin: 5px 2px 5px 5px;
 }
 
 .basket-btn {
-    flex-grow: 1;
-    flex-basis: 45%;
-    height: 25%;
-    margin: 4px;
+    /* flex-grow: 1; */
+    flex-basis: 36%;
+    height: 22%;
+    margin: 5px 2px 5px 5px;
 }
 
 .basket {

@@ -17,7 +17,7 @@
 
         <div id="categories">
             {% for category in categories %}
-                <a href="{% url 'menu:menu' menu.pk category.pk 0 0 %}"><button class="category sheet">{{ category }}</button></a>
+                <a href="{% url 'menu:menu' menu_pk=menu.pk category_pk=category.pk dish_pk=0 quantity=0 show_basket=show_basket %}"><button class="category sheet">{{ category }}</button></a>
             {% endfor %}
         </div>
 
@@ -53,7 +53,7 @@
                     </div>
                     <div class="dish-add">
                         {% if dish.is_available == True %}
-                            <span><a href="{% url 'menu:menu' menu.pk category.pk dish.pk 1 %}">+</a></span>
+                            <span><a href="{% url 'menu:menu' menu_pk=menu.pk category_pk=category.pk dish_pk=dish.pk quantity=1 show_basket=show_basket %}">+</a></span>
                         {% endif %}
                     </div>
                 </button>
@@ -80,8 +80,34 @@
                         </li>
                     </ul>
                 </div>
-                <button class="similar-btn sheet"></button>
-                <button class="basket-btn sheet">Koszyk</button>
+                <a href="#">
+                    <button class="similar-btn sheet">Podobne</button>
+                </a>
+                
+                
+                {% if show_basket == "True" %} {# hide basket if its displayed #}
+                    <a href="{% url 'menu:menu' menu_pk=menu.pk category_pk=category.pk dish_pk=dish_pk quantity=0 show_basket=False %}">
+                        <button class="basket-btn sheet">Koszyk</button>
+                   </a>
+                    <style>
+                        .basket {
+                            display: block;
+                        }
+                    </style>
+
+                {% else %}
+                    <a href="{% url 'menu:menu' menu_pk=menu.pk category_pk=category.pk dish_pk=dish_pk quantity=0 show_basket=True %}">
+                        <button class="basket-btn sheet">Koszyk</button>
+                    </a>
+                    <style>
+                        .basket {
+                            display: none;
+                        }
+                    </style>
+                {% endif %}
+                
+                
+
                 <div class="basket sheet">
                     {% for dish in dishes_in_basket %}
                         <button class="dish-in-basket sheet">
@@ -95,6 +121,6 @@
             </div> 
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{% static 'js/javascript.js' %}""></script>
+    {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/javascript.js' %}""></script> {% endcomment %}
 {% endblock content%}

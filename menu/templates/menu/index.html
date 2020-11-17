@@ -18,7 +18,7 @@
 
         <nav id="menus-choice">
             {% for menu in menus %}
-            <a href="{% url 'menu:menu' menu.pk menu.categories.first.pk 1 0 %}"><div class="menus-btn btn">{{ menu }}</div></a>
+            <a href="{% url 'menu:menu' menu_pk=menu.pk category_pk=menu.categories.first.pk dish_pk=1 quantity=0 show_basket=False %}"><div class="menus-btn btn">{{ menu }}</div></a>
             {% endfor %}
         </nav>
     </div>

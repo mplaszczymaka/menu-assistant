@@ -9,7 +9,7 @@ def index(request):
     menus = Menu.objects.all()
     return render(request, 'menu/index.html', {'menus':menus})
 
-def menu(request, menu_pk, category_pk, dish_pk = 0, quantity = 0):
+def menu(request, menu_pk, category_pk, dish_pk = 0, quantity = 0, show_basket=False):
     """ all behavior of menu_view"""
     # set current menu and its categories
     menu = Menu.objects.get(pk=menu_pk) 
@@ -66,11 +66,13 @@ def menu(request, menu_pk, category_pk, dish_pk = 0, quantity = 0):
     context =  {'menu'        :   menu,
                 'categories'  :   categories,
                 'category'    :   selected_category,
+                'dish_pk'     :   dish_pk,
                 'dishes'      :   dishes,
                 'dishes_in_basket':dishes_in_basket,
                 'count_dishes':   count_dishes,
                 'count_pieces':   count_pieces,
                 'count_costs' :   count_costs,
                 'count_portion':  count_portion,
+                'show_basket' :   show_basket,
                 }
     return render(request, 'menu/menu.html', context)

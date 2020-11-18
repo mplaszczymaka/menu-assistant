@@ -80,34 +80,33 @@
                         </li>
                     </ul>
                 </div>
-                <a href="#">
-                    <button class="similar-btn sheet">Podobne</button>
-                </a>
-                
-                
-                {% if show_basket == "True" %} {# hide basket if its displayed #}
-                    <a href="{% url 'menu:menu' menu_pk=menu.pk category_pk=category.pk dish_pk=dish_pk quantity=0 show_basket=False %}">
-                        <button class="basket-btn sheet">Koszyk</button>
-                   </a>
-                    <style>
-                        .basket {
-                            display: block;
-                        }
-                    </style>
-
-                {% else %}
-                    <a href="{% url 'menu:menu' menu_pk=menu.pk category_pk=category.pk dish_pk=dish_pk quantity=0 show_basket=True %}">
-                        <button class="basket-btn sheet">Koszyk</button>
+                <div clas="similar-btn">
+                    <a href="#">
+                        <button class="similar-btn sheet">Podobne</button>
                     </a>
-                    <style>
-                        .basket {
-                            display: none;
-                        }
-                    </style>
-                {% endif %}
-                
-                
+                </div>
+                <div class="basket-btn">
+                    {% if show_basket == "True" %} {# hide basket if its displayed #}
+                        <a href="{% url 'menu:menu' menu_pk=menu.pk category_pk=category.pk dish_pk=dish_pk quantity=0 show_basket=False %}">
+                            <button class="basket-btn sheet">Koszyk</button>
+                        </a>
+                        <style>
+                            .basket {
+                                display: block;
+                            }
+                        </style>
 
+                    {% else %}
+                        <a href="{% url 'menu:menu' menu_pk=menu.pk category_pk=category.pk dish_pk=dish_pk quantity=0 show_basket=True %}">
+                            <button class="basket-btn sheet">Koszyk</button>
+                        </a>
+                        <style>
+                            .basket {
+                                display: none;
+                            }
+                        </style>
+                    {% endif %}
+                </div>
                 <div class="basket sheet">
                     {% for dish in dishes_in_basket %}
                         <button class="dish-in-basket sheet">

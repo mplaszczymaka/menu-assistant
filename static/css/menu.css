@@ -189,14 +189,20 @@ a, a:hover, a:active, a:visited {
 
 #summary-extras div {
     box-sizing: border-box;
-    margin: 4px 0;
+    flex-basis: 50%;
+    margin: 3px 0;
     padding: 0 4px;
+    height:auto;
+}
+
+#summary-extras .basket {
+    width: 100%;
+    height: 67%;
+    box-shadow: none;
 }
 
 .summary {
     flex-grow: 2;
-    flex-basis: 90%;
-    height: 70%;
 }
 
 .count-basket span {
@@ -205,34 +211,31 @@ a, a:hover, a:active, a:visited {
 }
 
 .similar-btn {
-    /* flex-grow: 1; */
-    flex-basis: 36%;
-    height: 22%;
-    margin: 5px 2px 5px 5px;
+    height: 96%;
 }
 
 .basket-btn {
-    /* flex-grow: 1; */
-    flex-basis: 36%;
-    height: 22%;
-    margin: 5px 2px 5px 5px;
+    height: 96%;
 }
 
 .basket {
     flex-grow: 2;
-    flex-basis: 90%;
-    height: 70%;
     z-index: 1;
     position: absolute;
-    width: 100%;
     display: none;
     padding: 0;
+    
+}
+
+.basket div {
+    display: inline-block;
+    align-self: center;
 }
 
 .dish-in-basket {
     /* margin: 1px; */
     display: flex;
-    flex-wrap: wrap;  
+    flex-wrap: nowrap;  
     justify-content: space-around;
     font-size: 0.8rem;
     padding: 0;
@@ -241,11 +244,3 @@ a, a:hover, a:active, a:visited {
 
 
 
-.dish-in-basket div {
-    /* flex-grow: 1; */
-}
-
-.dish-in-basket .dish-name {
-    text-align: left;
-    flex-grow: 1;
-}

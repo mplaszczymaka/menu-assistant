@@ -3,14 +3,17 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from .models import Menu, Category, Dish, Dish_in_basket
 
+
 # Create your views here.
 def index(request):
     """ main page with logo, menu choice and account link in the future """
     menus = Menu.objects.all()
+    Dish_in_basket.objects.all().delete() # it delete items from basket everytime - its bad
     return render(request, 'menu/index.html', {'menus':menus})
 
 def menu(request, menu_pk, category_pk, dish_pk_or_name = 0, quantity = 0, show_basket=False):
     """ all behavior of menu_view"""
+
     # set current menu and its categories
     menu = Menu.objects.get(pk=menu_pk) 
     categories = menu.categories.all()

@@ -5,5 +5,5 @@ app_name = 'menu'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('menu/<int:menu_pk>/<int:category_pk>/<int:dish_pk>/<int:quantity>/<str:show_basket>/', views.menu, name='menu'),
+    path('menu/<int:menu_pk>/<int:category_pk>/<dish_pk_or_name>/<int:quantity>/<str:show_basket>/', views.menu, name='menu'),
 ]

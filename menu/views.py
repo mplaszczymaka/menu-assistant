@@ -1,18 +1,30 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from .models import Menu, Category, Dish, Dish_in_basket
+from .models import Menu, Category, Dish, Dish_in_basket, Basket
 
 
 # Create your views here.
 def index(request):
     """ main page with logo, menu choice and account link in the future """
     menus = Menu.objects.all()
-    Dish_in_basket.objects.all().delete() # it delete items from basket everytime - its bad
-    return render(request, 'menu/index.html', {'menus':menus})
+    
+    # create new basket and save its pk in session
+    basket = Basket()
+    basket.save()
+    basket = basket.pk  
+    request.session['basket']=basket
 
-def menu(request, menu_pk, category_pk, dish_pk_or_name = 0, quantity = 0, show_basket=False):
+    context = {
+        'menus' :   menus,
+    }
+    return render(request, 'menu/index.html', context)
+
+def menu(request, menu_pk=1, category_pk=1, dish_pk_or_name = None, quantity = 0, show_basket=False):
     """ all behavior of menu_view"""
+
+    basket=request.session['basket']
+    print("basket w menu: ", basket)
 
     # set current menu and its categories
     menu = Menu.objects.get(pk=menu_pk) 
@@ -86,6 +98,7 @@ def menu(request, menu_pk, category_pk, dish_pk_or_name = 0, quantity = 0, show_
                 'dish_pk_or_name'     :   dish_pk_or_name,
                 'dishes'      :   dishes,
                 'dishes_in_basket':dishes_in_basket,
+                'basket'      :   basket,
                 'count_dishes':   count_dishes,
                 'count_pieces':   count_pieces,
                 'count_costs' :   count_costs,

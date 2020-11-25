@@ -49,5 +49,11 @@ class Dish_in_basket(models.Model):
 
     def __str__(self):
         return self.name
+
+class Basket(models.Model):
+    dishes = models.ManyToManyField(Dish_in_basket)
+
+    class Meta:
+        verbose_name_plural = "Basket"
     
     

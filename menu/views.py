@@ -12,8 +12,8 @@ def index(request):
     # create new basket and save its pk in session
     basket = Basket()
     basket.save()
-    basket = basket.pk  
-    request.session['basket']=basket
+    basket_pk = basket.pk  
+    request.session['basket_pk']=basket_pk
 
     context = {
         'menus' :   menus,
@@ -22,9 +22,6 @@ def index(request):
 
 def menu(request, menu_pk=1, category_pk=1, dish_pk_or_name = None, quantity = 0, show_basket=False):
     """ all behavior of menu_view"""
-
-    basket=request.session['basket']
-    print("basket w menu: ", basket)
 
     # set current menu and its categories
     menu = Menu.objects.get(pk=menu_pk) 
@@ -39,26 +36,27 @@ def menu(request, menu_pk=1, category_pk=1, dish_pk_or_name = None, quantity = 0
         try:
             dish_pk_or_name = int(dish_pk_or_name) # it is dish_pk when we add from menu
             dish = Dish.objects.get(pk=dish_pk_or_name)
-            if Dish_in_basket.objects.filter(name=dish): # if is in basket
-                d = Dish_in_basket.objects.get(name=dish)
+            if Dish_in_basket.objects.filter(name=dish, basket_pk=request.session['basket_pk']): # if is in basket
+                d = Dish_in_basket.objects.get(name=dish, basket_pk=request.session['basket_pk'])
                 d.quantity += 1
                 d.save()   
             else:   # if not in basket
-                Dish_in_basket.objects.create(name=dish, quantity=1)
+                Dish_in_basket.objects.create(name=dish, quantity=1, basket_pk=request.session['basket_pk'])
+                
         except:
             dish = Dish.objects.get(name=dish_pk_or_name) # it is dish_name when we add from basket
-            d = Dish_in_basket.objects.get(name=dish)
+            d = Dish_in_basket.objects.get(name=dish, basket_pk=request.session['basket_pk'])
             d.quantity += 1
             d.save()
     if quantity == 2: # if I want to remove from basket
         dish = Dish.objects.get(name=dish_pk_or_name)
-        d = Dish_in_basket.objects.get(name=dish)
+        d = Dish_in_basket.objects.get(name=dish, basket_pk=request.session['basket_pk'])
         if d.quantity > 0:
             d.quantity -= 1
             d.save()
             
 
-    dishes_in_basket = Dish_in_basket.objects.all()
+    dishes_in_basket = Dish_in_basket.objects.filter(basket_pk=request.session['basket_pk'])
 
     # count number of dishes in basket
     count_dishes = []
@@ -91,14 +89,12 @@ def menu(request, menu_pk=1, category_pk=1, dish_pk_or_name = None, quantity = 0
     count_portion = int(round(sum(count_portion)))
 
 
-
     context =  {'menu'        :   menu,
                 'categories'  :   categories,
                 'category'    :   selected_category,
                 'dish_pk_or_name'     :   dish_pk_or_name,
                 'dishes'      :   dishes,
                 'dishes_in_basket':dishes_in_basket,
-                'basket'      :   basket,
                 'count_dishes':   count_dishes,
                 'count_pieces':   count_pieces,
                 'count_costs' :   count_costs,

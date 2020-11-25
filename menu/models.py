@@ -46,6 +46,7 @@ class Menu(models.Model):
 class Dish_in_basket(models.Model):
     name = models.CharField(max_length=30)
     quantity = models.IntegerField()
+    basket_pk = models.IntegerField(default=1)
 
     def __str__(self):
         return self.name

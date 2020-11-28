@@ -16,6 +16,7 @@ class Dish(models.Model):
     amount = models.SmallIntegerField()             # rename to quantity?
     is_available = models.BooleanField(default=True)
     portion_for = models.DecimalField(decimal_places=1, max_digits=2, default=0.7)
+    similar = models.ManyToManyField('self',blank=True, null=True)
     # img = models.ImageField()
 
     class Meta:

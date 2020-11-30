@@ -81,9 +81,9 @@
                         </li>
                     </ul>
                 </div>
-                <div clas="similar-btn">
+                <div class="similar-btn">
                     <a href="#">
-                        <button class="similar-btn sheet">Podobne</button>
+                        <button onclick="openSimilar()" class="similar-btn sheet">Podobne</button>
                     </a>
                 </div>
                 <div class="basket-btn">
@@ -109,7 +109,19 @@
                     {% endif %}
                 </div>
                 <div class="basket sheet">
+                    <p>Koszyk</p>
                     {% for dish in dishes_in_basket %}
+                        <button class="dish-in-basket sheet">
+                            <div class="dish-name">{{ dish }}</div>
+                            <div class="dish-amount-price">{{ dish.quantity }}szt</div>
+                            <div class="dish-add"><a href="{% url 'menu:menu' menu_pk=menu.pk category_pk=category.pk dish_pk_or_name=dish.name quantity=1 show_basket=show_basket %}">+</a></div>
+                            <div class="dish-remove"><a href="{% url 'menu:menu' menu_pk=menu.pk category_pk=category.pk dish_pk_or_name=dish.name quantity=2 show_basket=show_basket %}">-</a></div>
+                        </button>
+                    {% endfor %}
+                </div>
+                <div id="similar" class="similar sheet">
+                <p>Podobne</p>
+                    {% for similar_dish in di %}
                         <button class="dish-in-basket sheet">
                             <div class="dish-name">{{ dish }}</div>
                             <div class="dish-amount-price">{{ dish.quantity }}szt</div>

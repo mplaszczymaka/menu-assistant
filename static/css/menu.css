@@ -195,7 +195,9 @@ a, a:hover, a:active, a:visited {
     height:auto;
 }
 
-#summary-extras .basket {
+#summary-extras .basket,
+#summary-extras .similar {
+    font-size: 0.8rem;
     width: 100%;
     height: 67%;
     box-shadow: none;
@@ -223,8 +225,15 @@ a, a:hover, a:active, a:visited {
     z-index: 1;
     position: absolute;
     display: none;
-    padding: 0;
-    
+    padding: 0; 
+}
+
+.similar {
+    flex-grow: 2;
+    z-index: 1;
+    position: absolute;
+    display: none;
+    padding: 0;    
 }
 
 .basket div {

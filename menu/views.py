@@ -31,7 +31,7 @@ def change_menu(request, basket_pk=None):
     }
     return render(request, 'menu/index.html', context)
 
-def menu(request, menu_pk=1, category_pk=1, dish_pk_or_name = None, quantity = 0, show_basket=False):
+def menu(request, menu_pk=1, category_pk=1, dish_pk_or_name = '0', quantity = 0, show_basket=False, show_similar=False):
     """ all behavior of menu_view"""
 
     # set current menu and its categories
@@ -41,6 +41,11 @@ def menu(request, menu_pk=1, category_pk=1, dish_pk_or_name = None, quantity = 0
     # set current category to display dishes, default is first cat of specific menu
     selected_category = Category.objects.get(pk=category_pk)
     dishes = list(selected_category.dishes.all())
+
+    # to do: refactor attribute's types
+    if dish_pk_or_name == '0':
+        dish_pk_or_name = selected_category.dishes.first().pk
+
 
     basket_pk=request.session['basket_pk']
 
@@ -52,67 +57,75 @@ def menu(request, menu_pk=1, category_pk=1, dish_pk_or_name = None, quantity = 0
             if Dish_in_basket.objects.filter(name=dish, basket_pk=basket_pk): # if is in basket
                 d = Dish_in_basket.objects.get(name=dish, basket_pk=basket_pk)
                 d.quantity += 1
-                d.save()   
+                d.save()  
             else:   # if not in basket
                 Dish_in_basket.objects.create(name=dish, quantity=1, basket_pk=basket_pk)
-                
+           
         except:
             dish = Dish.objects.get(name=dish_pk_or_name) # it is dish_name when we add from basket
             d = Dish_in_basket.objects.get(name=dish, basket_pk=basket_pk)
             d.quantity += 1
             d.save()
-    if quantity == 2: # if I want to remove from basket
+            
+    elif quantity == 2: # if I want to remove from basket
         dish = Dish.objects.get(name=dish_pk_or_name)
         d = Dish_in_basket.objects.get(name=dish, basket_pk=basket_pk)
         if d.quantity > 0:
             d.quantity -= 1
             d.save()
-            
+    else:
+        try:
+            dish = Dish.objects.get(pk=dish_pk_or_name)
+        except:
+            dish = Dish.objects.get(name=dish_pk_or_name)
 
-    dishes_in_basket = Dish_in_basket.objects.filter(basket_pk=basket_pk)
+    basket = Dish_in_basket.objects.filter(basket_pk=basket_pk)
 
+    """ here is needed refactor - repeat yourself """
     # count number of dishes in basket
     count_dishes = []
-    for dish in dishes_in_basket:
-        count_dishes.append(dish.quantity)
+    for dish_in_basket in basket:
+        count_dishes.append(dish_in_basket.quantity)
     count_dishes = sum(count_dishes)
 
     # count number of pieces in basket
     count_pieces = []
-    for dish in dishes_in_basket:
-        quantity = Dish.objects.get(name=dish).amount
-        how_many = dish.quantity
+    for dish_in_basket in basket:
+        quantity = Dish.objects.get(name=dish_in_basket).amount
+        how_many = dish_in_basket.quantity
         count_pieces.append(quantity * how_many)
     count_pieces = sum(count_pieces)
-
+    
     # assume cost of basket
     count_costs = []
-    for dish in dishes_in_basket:
-        price = Dish.objects.get(name=dish).price
-        how_many = dish.quantity
+    for dish_in_basket in basket:
+        price = Dish.objects.get(name=dish_in_basket).price
+        how_many = dish_in_basket.quantity
         count_costs.append(price * how_many)
     count_costs = sum(count_costs)
 
     # count for how many people is food in basket
     count_portion = []
-    for dish in dishes_in_basket:
-        portion = Dish.objects.get(name=dish).portion_for
-        how_many = dish.quantity
+    for dish_in_basket in basket:
+        portion = Dish.objects.get(name=dish_in_basket).portion_for
+        how_many = dish_in_basket.quantity
         count_portion.append(portion * how_many)
     count_portion = int(round(sum(count_portion)))
 
-
+    
     context =  {'menu'        :   menu,
                 'categories'  :   categories,
                 'category'    :   selected_category,
                 'dish_pk_or_name'     :   dish_pk_or_name,
+                'dish'        :   dish,
                 'dishes'      :   dishes,
-                'dishes_in_basket':dishes_in_basket,
+                'basket'      :   basket,
                 'basket_pk'   :   basket_pk,   
                 'count_dishes':   count_dishes,
                 'count_pieces':   count_pieces,
                 'count_costs' :   count_costs,
                 'count_portion':  count_portion,
                 'show_basket' :   show_basket,
+                'show_similar':   show_similar,
                 }
     return render(request, 'menu/menu.html', context)
